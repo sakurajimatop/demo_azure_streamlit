@@ -1,0 +1,33 @@
+api-version: 2019-12-01
+location: westeurope
+name: streamlitmvp
+properties:
+  containers:
+  - name: streamlitmvp
+    properties:
+      image: streamlitmvp.azurecr.io/azure_demo:v1
+      ports:
+      - port: 80
+        protocol: TCP
+      - port: 443
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 2.0
+          memoryInGB: 1.5
+  imageRegistryCredentials:
+  - server: streamlitmvp.azurecr.io
+    username: STREAMLITMVP
+    password: 
+  restartPolicy: Never
+  ipAddress:
+    ports:
+    - port: 443
+      protocol: TCP
+    - port: 80
+      protocol: TCP
+    type: Public
+    dnsNameLabel: merkatoria
+  osType: Linux
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
